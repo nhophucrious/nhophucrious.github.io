@@ -2,6 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="resources/css/index.css">
+    <link rel="stylesheet" href="resources/css/navbar.css">
+    <link rel="stylesheet" href="resources/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,8 +12,19 @@
     <script src="resources/js/index.js"></script>
 </head>
 <body>
-    <div class="navbar">
+    <i class="fa fa-bars hamburger"></i>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn"><i class="fa fa-times"></i></a>
+        <a href="#" id="home-back-to-top">Home</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
@@ -20,7 +33,7 @@
         <div class="caption">
             <img src="/assets/images/profile.jpg" alt="Profile Picture" class="profile-pic">
             <br>
-            <span class="border">PHUC NGUYEN</span><br>
+            <span class="border">PHUC NGUYEN</span>
             <span class="border">iOS and Flutter Developer</span>
             <a href="assets/docs/PhucNguyenNhoGia_Resume.pdf" class="download-cv" download>Download Résumé</a>
         </div>
@@ -37,6 +50,25 @@
                         <li>Looking for mobile developer roles.</li>
                         <li>Experience with iOS and Flutter development.</li>
                         <li>Ambitious, punctual, and a team player</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience" class="section">
+        <div>
+            <h1>Education and Experience</h1>
+            <div class="profile-and-info">
+                <div class="vertical-text">EDUCATION</div>
+                <img src="assets/images/hcmut.png" alt="HCMUT" class="profile-pic">
+                <div class="about-content">                    
+                    <ul>                           
+                        <h2>Ho Chi Minh City University of Technology</h2>
+                        <li>Major: Computer Science | 2020 - 2024 (expected).</li>
+                        <li>GPA: 3.64.</li>
+                        <li>Receiver of the Merit-based Scholarship.</li>
+                        <li>Fields: Software Engineering, Information Systems.</li>
                     </ul>
                 </div>
             </div>

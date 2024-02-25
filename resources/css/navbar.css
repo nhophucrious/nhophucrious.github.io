@@ -1,0 +1,47 @@
+.hamburger {
+    position: sticky;
+    top: 0;
+    font-size: 3rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    opacity: 0.9;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 4rem;
+}
+
+.sidenav a {
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    margin-left: 3rem;
+}
