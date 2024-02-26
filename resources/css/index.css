@@ -3,34 +3,9 @@ body, html {
     margin: 0;
     font: 400 15px/1.8 "Jost", sans-serif;
 }
-.navbar {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    background-color: black;
-    z-index: 100;
-}
-
-.navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
 
 .section {
-    padding: 20px;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -78,9 +53,9 @@ body, html {
     gap: 0;
     background-color: black;
     color: #fff;
-    padding: 18px;
-    font-size: 25px;
-    letter-spacing: 10px;
+    padding: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
     font-weight: 600;
 }
 
