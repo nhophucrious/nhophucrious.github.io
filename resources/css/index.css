@@ -216,3 +216,46 @@ footer a:hover {
     color: white;
     padding: 10px;
 }
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    text-align: center;
+    width: 80%;
+    border-radius: 5px;
+}
+
+.text-overlay a {
+    font-weight: bold;
+    color: white; 
+    text-decoration: none;
+}
+
+.text-overlay a:visited {
+    color: white; 
+}
+
+.text-overlay a:hover {
+    text-decoration: underline;
+}
+
+.text-overlay a:active {
+    color: white; 
+}
