@@ -87,3 +87,45 @@
     font-size: 2rem;
     margin-left: 3rem;
 }
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    text-align: left;
+    width: 100%;
+}
+
+.contact-item a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.contact-item i {
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    transition: ease-in-out 0.2s;
+    font-size: 1.5rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item i:hover {
+    background-color: var(--primary-color);
+}
