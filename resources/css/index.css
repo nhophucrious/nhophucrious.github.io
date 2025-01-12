@@ -139,10 +139,19 @@ footer a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 50%;
     gap: 2rem;
+    margin: 0 auto;
 }
 
 .about-content {
+    display: flex;
+    align-items: start;
+    gap: 2rem;
+    width: 100%;
+}
+
+#about-me-content {
     display: flex;
     align-items: start;
     gap: 2rem;
