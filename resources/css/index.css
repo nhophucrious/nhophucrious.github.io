@@ -1,5 +1,6 @@
 :root {
     --primary-color: #682412;
+    --secondary-color: #E8AC9B;
 }
 
 body, html {
@@ -66,9 +67,10 @@ footer a:hover {
 }
 
 .caption {
-    position: relative;
-    left: 0;
-    top: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
     color: #fff;
@@ -85,10 +87,10 @@ footer a:hover {
 
 .caption span.border {
     gap: 0;
-    background-color: black;
-    color: #fff;
+    background-color: whitesmoke;
+    color: black;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     letter-spacing: 0.2rem;
     font-weight: 600;
 }
@@ -129,10 +131,25 @@ footer a:hover {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 .download-cv:hover {
     background-color: #ddd;
+}
+
+.about-me-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: whitesmoke;
+    background-color: var(--secondary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.about-me-btn:hover {
+    background-color: var(--primary-color);
 }
 
 .profile-and-info {

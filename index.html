@@ -38,6 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
     <script src="resources/js/index.js"></script>
 </head>
 <body>
@@ -67,11 +68,15 @@
 
     <div class="bgimg-1">
         <div class="caption">
-            <img src="/assets/images/profile.jpg" alt="Profile Picture" class="profile-pic">
-            <br>
-            <span class="border">PHUC NGUYEN</span>
-            <span class="border">Junior Mobile Developer</span>
-            <a href="assets/docs/PhucNguyenNhoGia_Resume.pdf" class="download-cv" download>Download Résumé</a>
+            <!-- <img src="/assets/images/profile.jpg" alt="Profile Picture" class="profile-pic">
+            <br> -->
+            <span class="border">Hi, I'm <span style="color: #682412;">Phuc Nguyen</span></span>
+            <span class="border">I'm a <span id="typed"></span></span>
+            <div style="flex-direction: row;">
+                <a href="assets/docs/PhucNguyenNhoGia_Resume.pdf" class="download-cv" download>Download Résumé</a>
+                <a href="#about" class="about-me-btn">About Me</a>
+            </div>
+            
         </div>
     </div>
 
