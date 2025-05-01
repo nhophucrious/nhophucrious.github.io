@@ -56,23 +56,12 @@ footer a:hover {
     min-height: 40vh;
 }
 
-/* .bgimg-1::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    filter: grayscale(100%);
-} */
-
 .caption {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
+    width: 70%;
     text-align: center;
     color: var(--primary-white);
     z-index: 2;
@@ -83,16 +72,12 @@ footer a:hover {
     padding: 1rem 0;
 }
 
-.caption img {
-    margin-bottom: 1rem;
-}
-
 .caption span.border {
     gap: 0;
     background-color: whitesmoke;
     color: black;
-    padding: 1rem;
-    font-size: 3.5rem;
+    padding: 0.5rem;
+    font-size: 2.5rem;
     letter-spacing: 0.2rem;
     font-weight: 600;
     border-radius: 10px;
