@@ -52,9 +52,8 @@ footer a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50vh; /* Changed from 100% to 50vh for more compact height */
-    /* background-image: url("/assets/images/abstract.jpg"); */
-    min-height: 50vh; /* Changed from 100% to 50vh for more compact height */
+    height: 40vh;
+    min-height: 40vh;
 }
 
 /* .bgimg-1::after {
@@ -96,6 +95,8 @@ footer a:hover {
     font-size: 3.5rem;
     letter-spacing: 0.2rem;
     font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .social-media-icons {
@@ -281,8 +282,9 @@ footer a:hover {
 }
 
 #my-name-top {
+    margin-top: 5rem;
     font-family: 'Jetbrains Mono', monospace;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 /* Skills and Interests Section */
@@ -291,7 +293,7 @@ footer a:hover {
     justify-content: center;
     padding: 2rem 1rem;
     background-color: var(--primary-white);
-    margin-top: 0; /* Removed top margin that was accounting for fixed navbar */
+    margin-top: 0;
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -309,10 +311,12 @@ footer a:hover {
 }
 
 .skills-items, .interests-items {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .skill-item, .interest-item {
@@ -324,7 +328,6 @@ footer a:hover {
     border-radius: 10px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    min-width: 100px;
     transition: all 0.3s ease;
 }
 

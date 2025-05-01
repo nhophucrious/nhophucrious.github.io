@@ -71,5 +71,7 @@ $(document).ready(function () {
     strings: ['Phuc Nguyen'],
     typeSpeed: 70,
     loop: false,
+    cursorChar: '|',
+    blinkSpeed: 1000,
   });
 });
