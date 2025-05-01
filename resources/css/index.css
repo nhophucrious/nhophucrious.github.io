@@ -1,12 +1,14 @@
 :root {
     --primary-color: #682412;
     --secondary-color: #E8AC9B;
+    --primary-white: #fefbfb;
 }
 
 body, html {
     height: 100%;
     margin: 0;
     font: 400 15px/1.8 "Jost", sans-serif;
+    background-color: var(--primary-white);
 }
 
 .section {
@@ -16,13 +18,13 @@ body, html {
 
 footer {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--primary-white);
     padding: 1rem;
     text-align: center;
 }
 
 footer a{
-    color: white;
+    color: var(--primary-white);
     text-decoration: none;
 }
 
@@ -50,12 +52,12 @@ footer a:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
-    background-image: url("/assets/images/abstract.jpg");
-    min-height: 100%;
+    height: 50vh; /* Changed from 100% to 50vh for more compact height */
+    /* background-image: url("/assets/images/abstract.jpg"); */
+    min-height: 50vh; /* Changed from 100% to 50vh for more compact height */
 }
 
-.bgimg-1::after {
+/* .bgimg-1::after {
     content: "";
     position: absolute;
     top: 0;
@@ -64,7 +66,7 @@ footer a:hover {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     filter: grayscale(100%);
-}
+} */
 
 .caption {
     position: absolute;
@@ -73,12 +75,13 @@ footer a:hover {
     transform: translate(-50%, -50%);
     width: 100%;
     text-align: center;
-    color: #fff;
+    color: var(--primary-white);
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1rem 0;
 }
 
 .caption img {
@@ -112,7 +115,7 @@ footer a:hover {
     display: block;
     margin: 1rem;
     font-size: 1rem;
-    color: white;
+    color: var(--primary-white);
     text-decoration: none;
 }
 
@@ -127,7 +130,7 @@ footer a:hover {
     margin-top: 1rem;
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: white;
+    background-color: var(--primary-white);
     color: black;
     text-decoration: none;
     text-transform: uppercase;
@@ -208,14 +211,14 @@ footer a:hover {
 }
 .back-to-top {
     display: none; 
-    position: fixed;
+    position: fixed; 
     bottom: 1rem; 
     right: 0rem; 
     z-index: 99; 
     border: none;
     outline: none; 
     background-color: black; 
-    color: white;
+    color: var(--primary-white);
     cursor: pointer;
     padding: 1rem;
     font-size: 1rem;             
@@ -230,7 +233,7 @@ footer a:hover {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     background-color: black;
-    color: white;
+    color: var(--primary-white);
     padding: 10px;
 }
 
@@ -251,7 +254,7 @@ footer a:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--primary-white);
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     text-align: center;
@@ -261,12 +264,12 @@ footer a:hover {
 
 .text-overlay a {
     font-weight: bold;
-    color: white; 
+    color: var(--primary-white); 
     text-decoration: none;
 }
 
 .text-overlay a:visited {
-    color: white; 
+    color: var(--primary-white); 
 }
 
 .text-overlay a:hover {
@@ -274,5 +277,64 @@ footer a:hover {
 }
 
 .text-overlay a:active {
-    color: white; 
+    color: var(--primary-white); 
+}
+
+#my-name-top {
+    font-family: 'Jetbrains Mono', monospace;
+    font-size: 2rem;
+}
+
+/* Skills and Interests Section */
+.skills-interests-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background-color: var(--primary-white);
+    margin-top: 0; /* Removed top margin that was accounting for fixed navbar */
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skills-container, .interests-container {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.skills-container h3, .interests-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.skills-items, .interests-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-item, .interest-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    min-width: 100px;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover, .interest-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--primary-color);
+    color: var(--primary-white);
+}
+
+.skill-item i, .interest-item i {
+    font-size: 2rem;
 }

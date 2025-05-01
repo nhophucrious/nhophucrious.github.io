@@ -23,3 +23,19 @@
         letter-spacing: 0.1rem;
     }
 }
+
+/* Responsive styles for Skills and Interests section */
+@media screen and (max-width: 768px) {
+    .skills-interests-section {
+        flex-direction: column;
+        margin-top: 80px;
+    }
+    
+    .skills-container, .interests-container {
+        width: 100%;
+    }
+    
+    .skill-item, .interest-item {
+        min-width: 80px;
+    }
+}

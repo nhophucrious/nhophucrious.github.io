@@ -35,7 +35,7 @@
     width: 100%;
     padding: 1rem 2rem;
     background-color: black;
-    color: white;
+    color: var(--primary-white);
     cursor: pointer;
     display: none;
     z-index: 100;
@@ -69,7 +69,7 @@
     padding: 1rem 2rem;
     text-decoration: none;
     font-size: 1rem;
-    color: white;
+    color: var(--primary-white);
     font-weight: bold;
     text-transform: uppercase;
     display: block;
@@ -113,7 +113,7 @@
 
 .contact-item i {
     background-color: #333;
-    color: white;
+    color: var(--primary-white);
     border-radius: 50%;
     padding: 10px;
     margin-right: 10px;
