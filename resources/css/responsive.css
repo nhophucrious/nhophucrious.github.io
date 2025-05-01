@@ -39,3 +39,110 @@
         min-width: 80px;
     }
 }
+
+/* Responsive styles for the about container with skills chips */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skills-chips {
+        margin-top: 1.5rem;
+    }
+    
+    .skill-chip {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .skills-chips {
+        gap: 0.6rem;
+    }
+    
+    .skill-chip {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Responsive styles for the Toolkit section */
+@media screen and (max-width: 992px) {
+    .toolkit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .toolkit-categories-wrapper {
+        flex-direction: column;
+    }
+    
+    .toolkit-category {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .toolkit-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .toolkit-item {
+        padding: 1.2rem;
+    }
+    
+    .toolkit-item i {
+        font-size: 2rem;
+    }
+    
+    .toolkit-category h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Responsive styles for the Timeline section */
+@media screen and (max-width: 768px) {
+    .timeline-columns {
+        flex-direction: column;
+    }
+    
+    .timeline-column {
+        width: 100%;
+    }
+    
+    .timeline-content {
+        padding: 1rem;
+    }
+    
+    .timeline-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    
+    .timeline-dot {
+        left: -1.75rem;
+        width: 12px;
+        height: 12px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-content h4 {
+        font-size: 0.9rem;
+    }
+    
+    .timeline-content p {
+        font-size: 0.85rem;
+    }
+}
