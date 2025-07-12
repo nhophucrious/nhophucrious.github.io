@@ -68,7 +68,7 @@ $(document).ready(function () {
   // });
 
   const typed = new Typed('#name-typed', {
-    strings: ['Phuc Nguyen'],
+    strings: ['Toby Nguyen'],
     typeSpeed: 70,
     loop: false,
     cursorChar: '|',
