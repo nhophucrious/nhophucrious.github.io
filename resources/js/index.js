@@ -61,11 +61,6 @@ $(document).ready(function () {
       $("#back-to-top").fadeOut();
     }
   });
-  // const typed = new Typed('#typed', {
-  //   strings: ['Mobile Developer', 'Flutter Developer', 'Tech Enthusiast', 'SwiftUI Apprentice'],
-  //   typeSpeed: 70,
-  //   loop: true,
-  // });
 
   const typed = new Typed('#name-typed', {
     strings: ['Toby Nguyen'],

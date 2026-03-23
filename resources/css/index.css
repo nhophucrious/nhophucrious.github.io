@@ -9,6 +9,8 @@ body, html {
     margin: 0;
     font: 400 15px/1.8 "Jost", sans-serif;
     background-color: var(--primary-white);
+    background-size: 40px 40px;
+    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
 }
 
 .section {
@@ -348,6 +350,28 @@ footer a:hover {
     padding: 1rem;
 }
 
+.about-card {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background-color: whitesmoke;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-image-side {
+    flex: 1;
+    max-width: 300px;
+}
+
+.about-content-side {
+    flex: 2;
+    text-align: left;
+}
+
 .about-profile {
     flex: 1;
     min-width: 300px;
@@ -361,15 +385,11 @@ footer a:hover {
     transition: 0.3s ease;
 }
 
-.about-profile:hover {
-    background-color: rgba(232, 172, 155, 0.1);
-}
-
 .profile-badges {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5rem;
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
 }
 
 .profile-badge {
