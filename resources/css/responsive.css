@@ -22,6 +22,24 @@
         font-size: 1.5rem;
         letter-spacing: 0.1rem;
     }
+
+    .about-card {
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+    }
+
+    .about-image-side {
+        max-width: 200px;
+    }
+
+    .about-content-side {
+        text-align: center;
+    }
+
+    .profile-badges {
+        justify-content: center;
+    }
 }
 
 /* About + contact */
