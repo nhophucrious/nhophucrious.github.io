@@ -1,77 +1,118 @@
-$(document).ready(function () {
-    $('a').on('click', function(event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            var hash = this.hash;
-            var navOffset = $('.navbar').height(); // Get the height of the navbar
-    
-            // Prevent the browser from scrolling when the hash changes
-            var scrollPosition = $(window).scrollTop();
-            window.location.hash = hash;
-            $(window).scrollTop(scrollPosition);
-    
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top - navOffset // Subtract the navbar height from the scroll position
-            }, 800);
-        }
+document.addEventListener("DOMContentLoaded", function () {
+  var sideNav = document.getElementById("mySidenav");
+  var hamburger = document.querySelector(".hamburger");
+  var backToTopButton = document.getElementById("back-to-top");
+  var homeLinks = document.querySelectorAll(".home-back-to-top");
+
+  function getTopOffset() {
+    var navbar = document.querySelector(".navbar");
+    var hamburgerBar = document.querySelector(".hamburger");
+
+    if (navbar && window.getComputedStyle(navbar).display !== "none") {
+      return navbar.offsetHeight;
+    }
+
+    if (hamburgerBar && window.getComputedStyle(hamburgerBar).display !== "none") {
+      return hamburgerBar.offsetHeight;
+    }
+
+    return 0;
+  }
+
+  function scrollToY(position) {
+    window.scrollTo({
+      top: position,
+      behavior: "smooth",
+    });
+  }
+
+  function closeSidenav() {
+    if (sideNav) {
+      sideNav.style.width = "0";
+    }
+  }
+
+  function openSidenav() {
+    if (sideNav) {
+      sideNav.style.width = "250px";
+    }
+  }
+
+  document.querySelectorAll("a").forEach(function (anchor) {
+    anchor.addEventListener("click", function (event) {
+      var hash = anchor.hash;
+
+      if (!hash || hash === "#") {
+        return;
+      }
+
+      var target = document.querySelector(hash);
+      if (!target) {
+        return;
+      }
+
+      event.preventDefault();
+      closeSidenav();
+
+      var targetPosition = target.getBoundingClientRect().top + window.scrollY - getTopOffset();
+      scrollToY(targetPosition);
+
+      history.replaceState(null, "", hash);
+    });
+  });
+
+  if (hamburger) {
+    hamburger.addEventListener("click", function (event) {
+      event.stopPropagation();
+      openSidenav();
+    });
+  }
+
+  if (sideNav) {
+    sideNav.addEventListener("click", function (event) {
+      event.stopPropagation();
     });
 
-  // for the hamburger menu on mobile
-  $(".hamburger").click(function (event) {
-    event.stopPropagation();
-    $("#mySidenav").css("width", "250px");
+    sideNav.querySelectorAll("a").forEach(function (navLink) {
+      navLink.addEventListener("click", closeSidenav);
+    });
+  }
+
+  document.addEventListener("click", closeSidenav);
+
+  homeLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      closeSidenav();
+      scrollToY(0);
+      history.replaceState(null, "", "#");
+    });
   });
 
-  $(".closebtn, #mySidenav a").click(function () {
-    $("#mySidenav").css("width", "0");
-  });
+  if (backToTopButton) {
+    backToTopButton.addEventListener("click", function () {
+      scrollToY(0);
+    });
+  }
 
-  $(document).click(function () {
-    $("#mySidenav").css("width", "0");
-  });
-
-  $("#mySidenav").click(function (event) {
-    event.stopPropagation();
-  });
-
-  // for the back to top button
-  $(".home-back-to-top").on("click", function () {
-    $("html, body").animate(
-      {
-        scrollTop: 0,
-      },
-      800
-    );
-  });
-
-  $("#back-to-top").on("click", function () {
-    $("html, body").animate(
-      {
-        scrollTop: 0,
-      },
-      800
-    );
-  });
-
-  // Show/hide the FAB
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 20) {
-      $("#back-to-top").fadeIn();
-    } else {
-      $("#back-to-top").fadeOut();
+  function toggleBackToTopVisibility() {
+    if (!backToTopButton) {
+      return;
     }
-  });
-  // const typed = new Typed('#typed', {
-  //   strings: ['Mobile Developer', 'Flutter Developer', 'Tech Enthusiast', 'SwiftUI Apprentice'],
-  //   typeSpeed: 70,
-  //   loop: true,
-  // });
 
-  const typed = new Typed('#name-typed', {
-    strings: ['Toby Nguyen'],
-    typeSpeed: 70,
-    loop: false,
-    cursorChar: '|',
-    blinkSpeed: 1000,
-  });
+    backToTopButton.style.display = window.scrollY > 20 ? "block" : "none";
+  }
+
+  window.addEventListener("scroll", toggleBackToTopVisibility);
+  toggleBackToTopVisibility();
+
+  if (window.Typed && document.getElementById("name-typed")) {
+    new Typed("#name-typed", {
+      strings: ["Toby Nguyen"],
+      typeSpeed: 70,
+      loop: false,
+      cursorChar: "|",
+      blinkSpeed: 1000,
+    });
+  }
 });

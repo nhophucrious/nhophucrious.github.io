@@ -39,23 +39,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-    <script src="resources/js/index.js"></script>
+    <script src="resources/js/index.js" defer></script>
 </head>
 <body>
     <i class="fa fa-bars hamburger"></i>
     <div id="mySidenav" class="sidenav">
+        <a href="#" class="closebtn" aria-label="Close navigation menu">&times;</a>
         <a href="#" class="home-back-to-top">Home</a>
         <a href="#about">About</a>
-        <a href="#experience">Experience</a>
+        <a href="#technical-skills">Skills</a>
+        <a href="#timeline">Journey</a>
         <!-- <a href="#projects">Projects</a> -->
-        <a href="#contact">Contacts</a>
+        <a href="#contact">Contact</a>
         <br>
         <div class="social-media-icons-navbar">
             <a href="mailto:nngiaphuc0101@gmail.com"><i class="fa fa-envelope"></i></a>
-            <a target="_blank" href="https://github.com/nhophucrious"><i class="fa fa-github"></i></a>
-            <a target="_blank" href="https://www.linkedin.com/in/phucnguyenng/"><i class="fa fa-linkedin"></i></a>
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/nhophucrious"><i class="fa fa-github"></i></a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/phucnguyenng/"><i class="fa fa-linkedin"></i></a>
         </div>
     </div>
     <div class="navbar">
@@ -69,7 +70,7 @@
 
     <div class="bgimg-1">
         <div class="caption">
-            <span class="border" id="my-name-top">👋 Hi, I'm <span style="color: #682412;"><span id="name-typed"></span></span></span>
+            <span class="border" id="my-name-top">👋 Hi, I'm <span class="text-accent"><span id="name-typed"></span></span></span>
         </div>
     </div>
 
@@ -93,7 +94,7 @@
                     </div>
                 </div>
                 
-                <div class="about-text" style="text-align: justify;">
+                <div class="about-text about-text-justified">
                     <p>I am a passionate and dedicated software developer with a strong foundation in mobile application development. I'm currently working as a Mobile Developer at YQueue Singapore. I have a keen interest in iOS and Flutter development, and I am always eager to learn new technologies and improve my skills.</p>
                     
                 </div>
@@ -197,10 +198,10 @@
         </div>
     </div>
 
-    <div id="projects" class="section" style="display:none;">
+    <div id="projects" class="section is-hidden">
         <h1>Projects</h1>
         <div class="my-separator"></div>
-        <p style="font-style: italic;">Please check back later!</p>
+        <p class="text-italic">Please check back later!</p>
     </div>
 
     <div id="contact" class="section">
@@ -211,13 +212,13 @@
                 <a href="mailto:nngiaphuc0101@gmail.com"><i class="fa fa-envelope"></i> nngiaphuc0101@gmail.com</a>
             </div>
             <div class="contact-item">
-                <a target="_blank" href="https://www.linkedin.com/in/phucnguyenng/"><i class="fa fa-linkedin"></i> Phuc Nguyen Nho Gia</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/phucnguyenng/"><i class="fa fa-linkedin"></i> Phuc Nguyen Nho Gia</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>Designed and built by Toby <a target="_blank" href="https://github.com/nhophucrious"><i class="fa fa-github"></i> nhophucrious</a></p>
+        <p>Designed and built by Toby <a target="_blank" rel="noopener noreferrer" href="https://github.com/nhophucrious"><i class="fa fa-github"></i> nhophucrious</a></p>
     </footer>
     <button id="back-to-top" class="back-to-top"><i class="fa fa-arrow-up"></i></button>
 </body>
