@@ -108,16 +108,27 @@
 
 /* Toolkit */
 @media screen and (max-width: 768px) {
-    .toolkit-categories-wrapper {
-        flex-direction: column;
+    .toolkit-grid-wide {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .toolkit-category {
-        width: 100%;
+    .skill-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .skill-group-label {
+        min-width: unset;
     }
 }
 
 @media screen and (max-width: 576px) {
+    .toolkit-grid-wide {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+
     .toolkit-grid {
         grid-template-columns: 1fr;
     }
