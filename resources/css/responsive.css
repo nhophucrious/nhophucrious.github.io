@@ -49,24 +49,18 @@
         align-items: center;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 2rem;
     }
 
-    .contact-item {
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .btn-submit {
+        align-self: stretch;
         justify-content: center;
-    }
-
-    .contact-item a {
-        font-size: 0.95rem;
-    }
-
-    .contact-item i {
-        width: 25px;
-        height: 25px;
-        font-size: 1.2rem;
-        padding: 8px;
     }
 }
 
