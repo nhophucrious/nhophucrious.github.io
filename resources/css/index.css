@@ -12,8 +12,8 @@ body {
     margin: 0;
     font: 400 15px/1.8 "Jost", sans-serif;
     background-color: var(--primary-white);
-    background-size: 40px 40px;
-    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+    /* background-size: 40px 40px;
+    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px); */
 }
 
 .section {
@@ -236,6 +236,7 @@ body {
     font-size: 0.85rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.4rem;
 }
 

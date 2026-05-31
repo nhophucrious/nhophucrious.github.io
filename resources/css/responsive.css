@@ -45,6 +45,11 @@
     .profile-badges {
         justify-content: center;
     }
+
+    .language-badges {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 /* About + contact */
@@ -61,6 +66,8 @@
 
     .contact-form {
         padding: 1.5rem;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .btn-submit {
@@ -123,13 +130,12 @@
 }
 
 @media screen and (max-width: 576px) {
-    .toolkit-grid-wide {
-        grid-template-columns: 1fr;
-        max-width: 280px;
-    }
-
     .toolkit-grid {
         grid-template-columns: 1fr;
+    }
+
+    .toolkit-grid.toolkit-grid-wide {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .toolkit-item {
