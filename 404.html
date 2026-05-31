@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#682412">
+    <title>404 — Page Not Found | Phuc Nguyen</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #682412;
+            --secondary-color: #E8AC9B;
+            --primary-white: #fefbfb;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Jost", sans-serif;
+            background-color: var(--primary-white);
+            background-size: 40px 40px;
+            background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-code {
+            font-family: "JetBrains Mono", monospace;
+            font-size: clamp(5rem, 20vw, 10rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            opacity: 0.15;
+            user-select: none;
+        }
+
+        .error-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 4px 24px rgba(104, 36, 18, 0.12);
+            max-width: 480px;
+            width: 100%;
+            margin-top: -2rem;
+        }
+
+        .error-card h1 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .error-card p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: var(--primary-white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(104, 36, 18, 0.3);
+        }
+
+        .btn-home:hover {
+            background-color: #4a1a0d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(104, 36, 18, 0.4);
+        }
+
+        .redirect-notice {
+            margin-top: 1.25rem;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        #countdown {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-code">404</div>
+    <div class="error-card">
+        <h1>Page not found</h1>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+        <a href="/" class="btn-home">
+            <i class="fa fa-home"></i> Back to portfolio
+        </a>
+        <p class="redirect-notice">Redirecting in <span id="countdown">5</span>s…</p>
+    </div>
+
+    <script>
+        var seconds = 5;
+        var el = document.getElementById("countdown");
+        var timer = setInterval(function () {
+            seconds -= 1;
+            el.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.replace("/");
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
