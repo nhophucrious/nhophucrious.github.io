@@ -116,6 +116,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  if (window.Typed && document.getElementById("role-typed")) {
+    new Typed("#role-typed", {
+      strings: ["Flutter Engineer", "Mobile Developer", "BLoC Architect"],
+      typeSpeed: 60,
+      backSpeed: 35,
+      backDelay: 2200,
+      loop: true,
+      cursorChar: "|",
+    });
+  }
+
   // Active nav highlight
   var allSections = Array.from(document.querySelectorAll(".section[id]")).filter(function (s) {
     return !s.classList.contains("is-hidden");
