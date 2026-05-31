@@ -23,6 +23,11 @@
         letter-spacing: 0.1rem;
     }
 
+    .hero-subtitle {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.8rem;
+    }
+
     .about-card {
         flex-direction: column;
         padding: 2rem;
@@ -49,24 +54,18 @@
         align-items: center;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 2rem;
     }
 
-    .contact-item {
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .btn-submit {
+        align-self: stretch;
         justify-content: center;
-    }
-
-    .contact-item a {
-        font-size: 0.95rem;
-    }
-
-    .contact-item i {
-        width: 25px;
-        height: 25px;
-        font-size: 1.2rem;
-        padding: 8px;
     }
 }
 
@@ -108,16 +107,27 @@
 
 /* Toolkit */
 @media screen and (max-width: 768px) {
-    .toolkit-categories-wrapper {
-        flex-direction: column;
+    .toolkit-grid-wide {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .toolkit-category {
-        width: 100%;
+    .skill-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .skill-group-label {
+        min-width: unset;
     }
 }
 
 @media screen and (max-width: 576px) {
+    .toolkit-grid-wide {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+    }
+
     .toolkit-grid {
         grid-template-columns: 1fr;
     }
