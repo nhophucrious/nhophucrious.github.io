@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+{{ partial "navbar_subpage.html" . }}
+
+<div class="project-hero">
+    <div class="project-hero-content">
+
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            {{ with .Section }}
+            <span class="breadcrumb-separator">/</span>
+            <a href="/{{ . | urlize }}">{{ . | title }}</a>
+            {{ end }}
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{ .Title }}</span>
+        </nav>
+
+        {{ with .Params.thumbnail }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="listing-thumbnail">
+        {{ end }}
+
+        <h1>{{ .Title }}</h1>
+
+        {{ with .Params.summary }}
+        <p class="project-summary">
+            {{ . }}
+        </p>
+        {{ end }}
+
+        {{ with .Params.technologies }}
+        <div class="skill-tags">
+            {{ range . }}
+                <span class="skill-tag">{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        {{ with .Date }}
+        <p class="project-date">
+            {{ .Format "January 2, 2006" }}
+        </p>
+        {{ end }}
+
+    </div>
+</div>
+
+<article class="article-card">
+    {{ .Content }}
+</article>
+
+{{ partial "footer.html" . }}
+
+{{ end }}

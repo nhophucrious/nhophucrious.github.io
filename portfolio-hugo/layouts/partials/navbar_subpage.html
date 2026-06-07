@@ -1,0 +1,28 @@
+<i class="fa fa-bars hamburger"></i>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" aria-label="Close navigation menu" onclick="closeNav()">&times;</a>
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/blogs">Blogs</a>
+  <br />
+  <div class="social-media-icons-navbar">
+    <a href="mailto:nngiaphuc0101@gmail.com"><i class="fa fa-envelope"></i></a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/nhophucrious"
+      ><i class="fa fa-github"></i
+    ></a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.linkedin.com/in/phucnguyenng/"
+      ><i class="fa fa-linkedin"></i
+    ></a>
+  </div>
+</div>
+<div class="navbar subpage-navbar">
+  <a href="/">Home</a>
+  <a href="/projects" {{ if eq .Section "projects" }}class="active"{{ end }}>Projects</a>
+  <a href="/blogs" {{ if eq .Section "blogs" }}class="active"{{ end }}>Blogs</a>
+</div>

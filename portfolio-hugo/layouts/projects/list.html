@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+{{ partial "navbar_subpage.html" . }}
+
+<section class="listing-page">
+
+    <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{{ .Title }}</span>
+    </nav>
+
+    <h1>{{ .Title }}</h1>
+
+    <div class="my-separator"></div>
+
+    <div class="listing-grid">
+
+        {{ range .Pages }}
+
+            <a href="{{ .RelPermalink }}" class="listing-card">
+
+                {{ with .Params.thumbnail }}
+                <img
+                    src="{{ . }}"
+                    alt="{{ $.Title }}"
+                    class="listing-thumbnail"
+                >
+                {{ end }}
+
+                <div class="listing-content">
+
+                    <h2>{{ .Title }}</h2>
+
+                    <p>
+                        {{ .Params.summary }}
+                    </p>
+
+                </div>
+
+            </a>
+        {{ else }}
+            <p>It's coming soon!</p>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ partial "footer.html" . }}
+
+{{ end }}

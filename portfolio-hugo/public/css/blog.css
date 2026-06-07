@@ -1,0 +1,171 @@
+.project-hero {
+  margin-top: 4rem;
+  padding: 4rem 1rem 2rem;
+}
+
+.project-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.project-summary {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.article-card {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+
+  background-color: whitesmoke;
+
+  padding: 3rem;
+
+  border-radius: 15px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.article-card h2 {
+  color: var(--primary-color);
+  margin-top: 2.5rem;
+}
+
+.article-card h3 {
+  color: var(--primary-color);
+  margin-top: 2rem;
+}
+
+.article-card p {
+  color: #333;
+}
+
+.article-card img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.article-card code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.article-card pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #f0f0f0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  text-decoration: none;
+
+  color: var(--primary-color);
+
+  font-weight: 600;
+
+  margin-bottom: 2rem;
+
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  transform: translateX(-4px);
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumb-separator {
+  color: #ccc;
+  font-weight: 300;
+}
+
+.breadcrumb-current {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.listing-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 1rem 4rem;
+}
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.listing-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+  /* 4. Add a hard limit to how wide a card can get */
+  max-width: 400px; 
+  width: 100%;
+}
+
+.listing-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.listing-thumbnail {
+  width: 100%;
+
+  height: 220px;
+
+  object-fit: cover;
+}
+
+.listing-content {
+  padding: 1.5rem;
+}
+
+.listing-content h2 {
+  color: var(--primary-color);
+
+  margin-top: 0;
+}
+
+.listing-content p {
+  color: var(--text-muted);
+}
