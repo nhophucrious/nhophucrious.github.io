@@ -2,7 +2,7 @@
 title = "First Blog Post"
 date = 2026-06-07T00:00:00+00:00
 summary = "It's a PhD (pretty Hugo day)"
-draft = false
+draft = true
 technologies = ["Hugo", "HTML", "CSS", "Coffee from the mountains"]
 thumbnail = "/images/blogs/blog_test.jpg"
 +++

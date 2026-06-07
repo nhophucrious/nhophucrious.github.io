@@ -35,6 +35,12 @@
         </div>
         {{ end }}
 
+        {{ with .Date }}
+        <p class="project-date">
+            {{ .Format "January 2, 2006" }}
+        </p>
+        {{ end }}
+
     </div>
 </div>
 

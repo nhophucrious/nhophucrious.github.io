@@ -10,15 +10,15 @@
 		
 		
 		
-			<lastBuildDate>Sun, 07 Jun 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sun, 07 Jun 2026 13:30:09 +0700</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/blogs/index.xml" rel="self" type="application/rss+xml" />
 			<item>
-				<title>First Blog Post</title>
-				<link>http://localhost:1313/blogs/first-post/</link>
-				<pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/blogs/first-post/</guid>
-				<description>It&amp;rsquo;s a PhD (pretty Hugo day)</description>
+				<title>Introducing Hugo</title>
+				<link>http://localhost:1313/blogs/introducing-hugo/</link>
+				<pubDate>Sun, 07 Jun 2026 13:30:09 +0700</pubDate>
+				<guid>http://localhost:1313/blogs/introducing-hugo/</guid>
+				<description>I&amp;rsquo;m moving this site to using Hugo.</description>
 			</item>
 	</channel>
 </rss>
