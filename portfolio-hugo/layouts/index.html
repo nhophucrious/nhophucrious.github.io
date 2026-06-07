@@ -196,7 +196,7 @@
                 Sole Flutter engineer on the company's live-streaming commerce
                 app, serving ~3,000 concurrent viewers across 5 daily sessions.
                 Rebuilt the data layer end to end, bringing page-change frame
-                rate from 5–6fps to a stable 60fps. Introduced engagement
+                rate from 5-6fps to a stable 60fps. Introduced engagement
                 features including live polls and lucky gift boxes, and
                 integrated Flutter mini-apps into native platforms via method
                 channels.
@@ -223,10 +223,29 @@
   </div>
 </div>
 
-<div id="projects" class="section is-hidden">
-  <h1>Projects</h1>
+<div id="blogs" class="section">
+  <h1>Latest from the Blog</h1>
   <div class="my-separator"></div>
-  <p class="text-italic">Please check back later!</p>
+  
+  <div class="featured-card-container" style="display: flex; justify-content: center; padding: 0 1rem;">
+    {{ range first 1 (where .Site.RegularPages "Section" "blogs") }}
+      <a href="{{ .RelPermalink }}" class="listing-card" style="max-width: 400px; width: 100%; text-align: left;">
+        {{ with .Params.thumbnail }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="listing-thumbnail">
+        {{ end }}
+        <div class="listing-content">
+          <h2>{{ .Title }}</h2>
+          <p>{{ .Params.summary }}</p>
+        </div>
+      </a>
+    {{ else }}
+      <p>No blog posts found.</p>
+    {{ end }}
+  </div>
+
+  <a class="btn-download-resume" href="/blogs">
+    <i class="fa fa-rss"></i> Read more posts
+  </a>
 </div>
 
 <div id="contact" class="section">

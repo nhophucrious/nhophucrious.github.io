@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>My New Hugo Project</title>
+		<title>Toby Nguyen&#39;s portfolio</title>
 		<link>http://localhost:1313/</link>
-		<description>Recent content on My New Hugo Project</description>
+		<description>Recent content on Toby Nguyen&#39;s portfolio</description>
 		<generator>Hugo</generator>
 		<language>en-us</language>
 		
@@ -18,14 +18,7 @@
 				<link>http://localhost:1313/blogs/introducing-hugo/</link>
 				<pubDate>Sun, 07 Jun 2026 13:30:09 +0700</pubDate>
 				<guid>http://localhost:1313/blogs/introducing-hugo/</guid>
-				<description>&lt;h1 id=&#34;my-site-is-now-powered-by-hugo&#34;&gt;My site is now powered by Hugo&lt;/h1&gt;&#xA;&lt;p&gt;It&amp;rsquo;s always good to get some historical context. I built the original version of this site with a simple stack: plain HTML, CSS, and JS. Back then, and up to very recently, it had been an extension of my résumé, you know, all that experience, skills, contact info&amp;hellip; were given colours and links and what not.&lt;/p&gt;&#xA;&lt;p&gt;I was happy with it, until there was a need to add more content. Because of the simple nature of the site back then, simply adding anything was a big hassle. I&amp;rsquo;m not a web developer either, which adds more complexity. Therefore, Hugo comes up as a natural progression, an evolution, to what I had.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>First Blog Post</title>
-				<link>http://localhost:1313/blogs/first-post/</link>
-				<pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/blogs/first-post/</guid>
-				<description>It&amp;rsquo;s a PhD (pretty Hugo day)</description>
+				<description>I&amp;rsquo;m moving this site to using Hugo.</description>
 			</item>
 	</channel>
 </rss>

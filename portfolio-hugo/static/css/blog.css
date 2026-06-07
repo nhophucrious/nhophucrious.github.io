@@ -117,32 +117,29 @@
   margin: 0 auto;
   padding: 6rem 1rem 4rem;
 }
-
 .listing-grid {
   display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .listing-card {
   display: flex;
   flex-direction: column;
-
   text-decoration: none;
-
   color: inherit;
-
   background-color: whitesmoke;
-
   border-radius: 15px;
-
   overflow: hidden;
-
   transition: all 0.25s ease;
-
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+  /* 4. Add a hard limit to how wide a card can get */
+  max-width: 400px; 
+  width: 100%;
 }
 
 .listing-card:hover {
