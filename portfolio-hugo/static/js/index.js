@@ -82,10 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   homeLinks.forEach(function (link) {
     link.addEventListener("click", function (event) {
-      event.preventDefault();
-      closeSidenav();
-      scrollToY(0);
-      history.replaceState(null, "", "#");
+      if (isHomePage) {
+        event.preventDefault();
+        closeSidenav();
+        scrollToY(0);
+        history.replaceState(null, "", "#");
+      }
     });
   });
 
@@ -106,16 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", toggleBackToTopVisibility);
   toggleBackToTopVisibility();
 
-  if (window.Typed && document.getElementById("name-typed")) {
-    new Typed("#name-typed", {
-      strings: ["Toby Nguyen"],
-      typeSpeed: 70,
-      loop: false,
-      cursorChar: "|",
-      blinkSpeed: 1000,
-    });
-  }
-
   if (window.Typed && document.getElementById("role-typed")) {
     new Typed("#role-typed", {
       strings: ["Flutter Engineer", "Mobile Developer", "BLoC Architect"],
@@ -128,14 +120,23 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Active nav highlight
-  var allSections = Array.from(document.querySelectorAll(".section[id]")).filter(function (s) {
-    return !s.classList.contains("is-hidden");
-  });
+  var isHomePage =
+    window.location.pathname === "/" ||
+    window.location.pathname === "/index.html" ||
+    (window.location.host.includes("localhost") && window.location.pathname === "/");
+  
+  var allSections = Array.from(document.querySelectorAll(".section[id]")).filter(
+    function (s) {
+      return !s.classList.contains("is-hidden");
+    }
+  );
   var allNavLinks = document.querySelectorAll(
-    ".navbar a[href^='#'], .sidenav a[href^='#']"
+    ".navbar:not(.subpage-navbar) a[href^='#'], .sidenav:not(.subpage-navbar) a[href^='#']"
   );
 
   function updateActiveNav() {
+    if (!isHomePage) return;
+
     var navbar = document.querySelector(".navbar");
     var navbarHeight = navbar ? navbar.offsetHeight : 0;
     var currentId = null;

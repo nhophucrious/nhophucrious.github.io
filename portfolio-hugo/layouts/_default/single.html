@@ -1,14 +1,23 @@
 {{ define "main" }}
 
-{{ partial "navbar.html" . }}
+{{ partial "navbar_subpage.html" . }}
 
 <div class="project-hero">
     <div class="project-hero-content">
 
-        <a href="/" class="back-link">
-            <i class="fa fa-arrow-left"></i>
-            Back Home
-        </a>
+        <nav class="breadcrumb">
+            <a href="/">Home</a>
+            {{ with .Section }}
+            <span class="breadcrumb-separator">/</span>
+            <a href="/{{ . | urlize }}">{{ . | title }}</a>
+            {{ end }}
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{ .Title }}</span>
+        </nav>
+
+        {{ with .Params.thumbnail }}
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="listing-thumbnail">
+        {{ end }}
 
         <h1>{{ .Title }}</h1>
 

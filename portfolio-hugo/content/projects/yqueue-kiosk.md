@@ -2,6 +2,12 @@
 date = '2026-06-07T10:07:56+07:00'
 draft = true
 title = 'YQueue Kiosk'
+thumbnail = "/images/thumbnail-logo.png"
+technologies = [
+    "Flutter",
+    "BLoc",
+    "monorepo"
+]
 +++
 
 # Overview

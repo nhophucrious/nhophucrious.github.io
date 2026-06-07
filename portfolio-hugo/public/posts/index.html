@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8" />
     <meta
       name="description"
@@ -14,7 +14,7 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#682412" />
 
-    <!-- Favicon -->
+    
     <link
       rel="icon"
       type="image/png"
@@ -28,22 +28,22 @@
       href="/images/favicon-32x32.png"
     />
 
-    <!-- begin open graph tags -->
+    
     <meta property="og:title" content="Toby Nguyen | Portfolio" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nhophucrious.github.io/" />
     <meta property="og:image" content="/images/thumbnail-logo.png" />
     <meta property="og:description" content="Toby Nguyen's Portfolio" />
-    <!-- end of open graph tags -->
+    
 
-    <!-- begin twitter card tags -->
+    
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@nhophucrious" />
     <meta name="twitter:creator" content="@nhophucrious" />
     <meta name="twitter:title" content="Toby Nguyen | Portfolio" />
     <meta name="twitter:description" content="Toby Nguyen's Portfolio" />
     <meta name="twitter:image" content="/images/thumbnail-logo.png" />
-    <!-- end of twitter card tags -->
+    
 
     <title>Toby Nguyen | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,6 +73,104 @@
     <script src="/js/index.js" defer></script>
   </head>
   <body>
-    <div class="page-container">{{ block "main" . }}{{ end }}</div>
+    <div class="page-container">
+
+<i class="fa fa-bars hamburger"></i>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" aria-label="Close navigation menu" onclick="closeNav()">&times;</a>
+  <a href="/">Home</a>
+  <a href="/projects">Projects</a>
+  <a href="/blog">Blog</a>
+  <br />
+  <div class="social-media-icons-navbar">
+    <a href="mailto:nngiaphuc0101@gmail.com"><i class="fa fa-envelope"></i></a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/nhophucrious"
+      ><i class="fa fa-github"></i
+    ></a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.linkedin.com/in/phucnguyenng/"
+      ><i class="fa fa-linkedin"></i
+    ></a>
+  </div>
+</div>
+<div class="navbar subpage-navbar">
+  <a href="/">Home</a>
+  <a href="/projects" >Projects</a>
+  <a href="/blog" >Blog</a>
+</div>
+
+<section class="listing-page">
+
+    <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Posts</span>
+    </nav>
+
+    <h1>Posts</h1>
+
+    <div class="my-separator"></div>
+
+    <div class="listing-grid">
+
+        
+
+            <a href="/posts/first-post/" class="listing-card">
+
+                
+                <img
+                    src="/images/blogs/blog_test.jpg"
+                    alt="Posts"
+                    class="listing-thumbnail"
+                >
+                
+
+                <div class="listing-content">
+
+                    <h2>First Blog Post</h2>
+
+                    <p>
+                        It&#39;s a PhD (pretty Hugo day)
+                    </p>
+
+                </div>
+
+            </a>
+
+        
+
+    </div>
+
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="mailto:nngiaphuc0101@gmail.com" aria-label="Email"
+      ><i class="fa fa-envelope"></i
+    ></a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/nhophucrious"
+      aria-label="GitHub"
+      ><i class="fa fa-github"></i
+    ></a>
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://www.linkedin.com/in/phucnguyenng/"
+      aria-label="LinkedIn"
+      ><i class="fa fa-linkedin"></i
+    ></a>
+  </div>
+  <p>Designed and built by Toby and probably your mom as well lmao</p>
+</footer>
+
+</div>
   </body>
 </html>

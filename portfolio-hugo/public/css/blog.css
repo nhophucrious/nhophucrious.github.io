@@ -83,6 +83,35 @@
   transform: translateX(-4px);
 }
 
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary-color);
+}
+
+.breadcrumb-separator {
+  color: #ccc;
+  font-weight: 300;
+}
+
+.breadcrumb-current {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
 .listing-page {
   max-width: 1200px;
   margin: 0 auto;

@@ -1,10 +1,16 @@
 {{ define "main" }}
 
-{{ partial "navbar.html" . }}
+{{ partial "navbar_subpage.html" . }}
 
 <section class="listing-page">
 
-    <h1>Blog</h1>
+    <nav class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">{{ .Title }}</span>
+    </nav>
+
+    <h1>{{ .Title }}</h1>
 
     <div class="my-separator"></div>
 

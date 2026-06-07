@@ -12,8 +12,13 @@ body {
     margin: 0;
     font: 400 15px/1.8 "Jost", sans-serif;
     background-color: var(--primary-white);
-    /* background-size: 40px 40px;
-    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px); */
+}
+
+.page-container {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .section {
@@ -648,6 +653,7 @@ footer {
     color: var(--primary-white);
     padding: 1.25rem 1rem 1rem;
     text-align: center;
+    margin-top: auto;
 }
 
 .footer-links {
