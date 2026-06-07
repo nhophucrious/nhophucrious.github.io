@@ -1,0 +1,317 @@
+{{ define "main" }}
+
+{{ partial "navbar.html" . }}
+
+<div class="bgimg-1">
+  <div class="caption">
+    <span class="border" id="my-name-top"
+      >👋 Hi, I'm <span class="text-accent"><span id="name-typed"></span></span
+    ></span>
+    <span class="hero-subtitle"><span id="role-typed"></span></span>
+  </div>
+</div>
+
+<div id="about" class="section">
+  <h1>About Me</h1>
+  <div class="my-separator"></div>
+
+  <div class="about-container">
+    <div class="about-card">
+      <div class="about-image-side">
+        <img
+          src="/images/hero.jpg"
+          alt="Profile Picture"
+          class="profile-pic"
+        />
+      </div>
+
+      <div class="about-content-side">
+        <!-- <div class="profile-badges">
+                        <div class="profile-badge">
+                            <i class="fa fa-code"></i> Mobile Developer
+                        </div>
+                        <div class="profile-badge">
+                            <i class="fa fa-graduation-cap"></i> HCMUT
+                        </div>
+                        <div class="profile-badge">
+                            <i class="fa fa-building"></i> YQueue Singapore
+                        </div>
+                    </div> -->
+
+        <div class="language-badges">
+          <div class="language-badge">
+            Vietnamese <span class="lang-level">Native</span>
+          </div>
+          <div class="language-badge">
+            English <span class="lang-level">IELTS 8.0</span>
+          </div>
+          <div class="language-badge">
+            French <span class="lang-level">DELF A2</span>
+          </div>
+        </div>
+
+        <div class="about-text" style="text-align: justify">
+          <p>
+            Flutter engineer with a track record of owning high-impact mobile
+            products end to end — from inheriting a poorly architected
+            live-streaming app and rebuilding it for 60fps performance, to
+            leading a full BLoC and clean architecture migration on a production
+            kiosk system serving F&B businesses across Singapore. Focused on
+            stable state management, offline-first data design, and shipping
+            features that hold up under real-world edge cases.
+          </p>
+        </div>
+        <a
+          href="/docs/PhucNguyen_MobileDeveloper_resume_june03.pdf"
+          download
+          class="btn-download-resume"
+        >
+          <i class="fa fa-download"></i> Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="technical-skills" class="section">
+  <h1>Technical Skills</h1>
+  <div class="my-separator"></div>
+
+  <div class="toolkit-container">
+    <div class="toolkit-grid toolkit-grid-wide">
+      <div class="toolkit-item">
+        <i class="devicon-dart-plain colored"></i>
+        <span>Dart</span>
+        <small>Language</small>
+      </div>
+      <div class="toolkit-item">
+        <i class="devicon-python-plain colored"></i>
+        <span>Python</span>
+        <small>Language</small>
+      </div>
+      <div class="toolkit-item">
+        <i class="devicon-flutter-plain colored"></i>
+        <span>Flutter</span>
+        <small>Framework</small>
+      </div>
+      <div class="toolkit-item">
+        <i class="devicon-firebase-plain colored"></i>
+        <span>Firebase</span>
+        <small>Tool</small>
+      </div>
+      <div class="toolkit-item">
+        <i class="devicon-github-original"></i>
+        <span>GitHub</span>
+        <small>Tool</small>
+      </div>
+      <div class="toolkit-item">
+        <i class="devicon-bitbucket-original colored"></i>
+        <span>Bitbucket</span>
+        <small>Tool</small>
+      </div>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <span class="skill-group-label">State Management</span>
+        <div class="skill-tags">
+          <span class="skill-tag">BLoC</span>
+          <span class="skill-tag">Cubit</span>
+          <span class="skill-tag">Riverpod</span>
+          <span class="skill-tag">Provider</span>
+          <span class="skill-tag">GetX</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Architecture</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Clean Architecture</span>
+          <span class="skill-tag">Monorepo (Melos)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Data &amp; Storage</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Hive</span>
+          <span class="skill-tag">SharedPreferences</span>
+          <span class="skill-tag">Dio</span>
+          <span class="skill-tag">json_serializable</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-group-label">Other Tools</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Sentry</span>
+          <span class="skill-tag">GetIt</span>
+          <span class="skill-tag">Injectable</span>
+          <span class="skill-tag">flutter_test</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="timeline" class="section">
+  <h1>Journey</h1>
+  <div class="my-separator"></div>
+
+  <div class="timeline-container">
+    <div class="timeline-columns">
+      <div class="timeline-column">
+        <h2 class="timeline-title">Education</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2020 - 2024</div>
+            <div class="timeline-content">
+              <h3>Bachelor's Degree in Computer Science</h3>
+              <h4>Ho Chi Minh City University of Technology</h4>
+              <p>
+                Graduated with Distinction. Specialized in Software Engineering
+                and Information Systems. Recipient of multiple Merit-based
+                Scholarships.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-column">
+        <h2 class="timeline-title">Experience</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Aug 2024 - Present</div>
+            <div class="timeline-content">
+              <h3>Mobile Developer</h3>
+              <h4>YQueue Singapore</h4>
+              <p>
+                Led full migration of the production kiosk app from MVVM to BLoC
+                with clean architecture and a monorepo structure. Built an
+                offline-first transaction system using revision-based conflict
+                resolution over LAN. Integrated thermal printer and cash drawer
+                support via ESC/POS, and maintained low QA defect rates through
+                edge-case handling and unit testing.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Jul 2024 - Jul 2025</div>
+            <div class="timeline-content">
+              <h3>Flutter Engineer</h3>
+              <h4>Con Cung Corporation</h4>
+              <p>
+                Sole Flutter engineer on the company's live-streaming commerce
+                app, serving ~3,000 concurrent viewers across 5 daily sessions.
+                Rebuilt the data layer end to end, bringing page-change frame
+                rate from 5–6fps to a stable 60fps. Introduced engagement
+                features including live polls and lucky gift boxes, and
+                integrated Flutter mini-apps into native platforms via method
+                channels.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">May 2023 - Aug 2023</div>
+            <div class="timeline-content">
+              <h3>iOS Developer Intern</h3>
+              <h4>GeoComply Vietnam</h4>
+              <p>
+                Built a Safari Web Extension in SwiftUI to bridge communication
+                between the company's web and mobile SDKs. Researched new iOS
+                features and beta releases by following WWDC events.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="projects" class="section is-hidden">
+  <h1>Projects</h1>
+  <div class="my-separator"></div>
+  <p class="text-italic">Please check back later!</p>
+</div>
+
+<div id="contact" class="section">
+  <h1>Contact</h1>
+  <div class="my-separator"></div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h3>Get in touch</h3>
+      <p class="contact-tagline">
+        Have a question or want to work together? Fill out the form or reach out
+        directly.
+      </p>
+      <div class="contact-links">
+        <div class="contact-item">
+          <a href="mailto:nngiaphuc0101@gmail.com"
+            ><i class="fa fa-envelope"></i> nngiaphuc0101@gmail.com</a
+          >
+        </div>
+        <div class="contact-item">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/phucnguyenng/"
+            ><i class="fa fa-linkedin"></i> Phuc Nguyen Nho Gia</a
+          >
+        </div>
+      </div>
+    </div>
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xzzdpovl"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="contact-name">Name</label>
+        <input
+          type="text"
+          id="contact-name"
+          name="name"
+          placeholder="Your name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email</label>
+        <input
+          type="email"
+          id="contact-email"
+          name="email"
+          placeholder="your@email.com"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows="5"
+          placeholder="Your message..."
+          required
+        ></textarea>
+      </div>
+      <button type="submit" class="btn-submit">
+        <i class="fa fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+</div>
+
+{{ partial "footer.html" . }}
+
+<button id="back-to-top" class="back-to-top">
+  <i class="fa fa-arrow-up"></i>
+</button>
+
+{{ end }}
