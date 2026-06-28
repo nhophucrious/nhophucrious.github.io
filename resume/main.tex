@@ -1,0 +1,187 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[10pt,a4paper]{article}
+\usepackage{setspace}
+\usepackage{latexsym}
+\usepackage[
+    left=1in,
+    right=1in,
+    top=1in,
+    bottom=0.5in
+]{geometry}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{multicol}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.75in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+% Optimized to remove description lines and tightly align details
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} $|$ \textit{\small #3} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+    \vspace{2pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\onehalfspacing
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  \textbf{\Huge \scshape Phuc Nguyen} \\ \vspace{3pt}
+  \textbf{\Large \scshape Mobile Developer} \\ \vspace{5pt}
+  \small (+84) 982 499 267 $|$ \href{mailto:nngiaphuc0101@gmail.com}{\underline{nngiaphuc0101@gmail.com}} $|$ 
+  \href{https://linkedin.com/in/phucnguyenng}{\underline{linkedin.com/in/phucnguyenng}} $|$
+  % \href{https://github.com/nhophucrious}{\underline{github.com/nhophucrious}} $|$
+  \href{https://nhophucrious.github.io/}{\underline{https://nhophucrious.github.io/}}
+\end{center}
+
+%-----------PROFESSIONAL SUMMARY-----------
+\section{Professional Summary}
+Mobile Developer with a track record of owning high-impact mobile products end to end - from inheriting a poorly architected live-streaming app and rebuilding it for 60fps performance, to leading a full BLoC and clean architecture migration on a production kiosk system serving F\&B businesses across Singapore. Focused on stable state management, offline-first data design, and shipping features that hold up under real-world edge cases.
+\vspace{-10pt}
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+% \vspace{-10pt}
+\begin{itemize}[leftmargin=0.15in, label={}, noitemsep]
+    \item \textbf{Core:} Dart, Flutter, BLoC, Cubit, Clean Architecture, monorepo (Melos).
+    \item \textbf{Data \& Tooling:} Hive, Dio, Firebase, GetIt, Injectable, Sentry, Ably, Flutter Test.
+    \item \textbf{Workflow:} GitHub, GitHub Actions, GitHub Copilot, Open Router, Codex.
+\end{itemize}
+% \begin{multicols}{2}
+%   \begin{itemize}[leftmargin=0.15in, label={}, noitemsep]
+%       \item \textbf{Languages}{: Dart, Python}
+%       \item \textbf{Frameworks}{: Flutter}
+%       \item \textbf{State Management}{: BLoC, Cubit, Riverpod, Provider, GetX}
+%       \item \textbf{AI tools}{: GitHub Copilot, ChatGPT Codex, OpenRouter}
+%       \columnbreak
+%       \item \textbf{Architecture}{: Clean Architecture, Monorepo (Melos)}
+%       \item \textbf{Data \& Storage}{: Hive, SharedPreferences, Dio, json\_serializable}
+%       \item \textbf{Tools}{: GitHub, Bitbucket, Sentry, Firebase, GetIt, Injectable, flutter\_test}
+%   \end{itemize}
+% \end{multicols}
+\vspace{-20pt}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+% \vspace{-10pt}
+\resumeSubHeadingListStart
+    \resumeSubheading
+    {Mobile Developer}{August 2025 -- Present}
+    {YQueue Singapore}{Singapore}
+    \resumeItemListStart
+        \resumeItem{Co-architected and developed the POS application from the ground up as an foundational engineer on a 4-person team, establishing core subsystems (logging, localization, printing, and LAN sync) now live in production and onboarding active merchants.}
+        \resumeItem{Initiated and drove the structural refactor of the kiosk application, extracting unified domain, storage, and repository packages from the POS codebase to establish the clean-architecture blueprint followed by the team to migrate the application layer.}
+        \resumeItem{Engineered an offline-first transaction sync system across primary and secondary POS devices, implementing a revision-based conflict resolution strategy over local network to guarantee data consistency without internet dependency.}
+        \resumeItem{Maintained and scaled the shared \texttt{yqueue\_flutter} monorepo powering the kiosk, POS, OMS, and web apps, delivering critical ecosystem features including OAuth support, complex surcharge/discount logic, and real-time Ably events.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+    {Mobile Developer}{July 2024 -- July 2025}
+    {Con Cung Corporation}{Ho Chi Minh City, Vietnam}
+    \resumeItemListStart
+        \resumeItem{Sole Flutter developer on the company's live-streaming commerce app, serving $\sim$4,000 concurrent viewers across 5 daily sessions and averaging $\sim$300M VND in revenue per stream.}
+        \resumeItem{Inherited an application loading 700+ products at once without pagination and rebuilt the data layer end to end, bringing page-change frame rate from 5-6 FPS to a stable 60 FPS and reducing device heat enough for users to hold the phone comfortably throughout a session.}
+        \resumeItem{Drove an animation-light UI design in collaboration with designers and analysts, prioritizing load speed while introducing engagement features such as live polls and lucky gift boxes that encouraged interactivity without compromising buying flow.}
+        \resumeItem{Integrated Flutter mini-apps into native platforms via method channels to extend e-commerce functionality.}
+    \resumeItemListEnd
+
+    \resumeSubheading
+    {iOS Developer Intern}{May 2023 -- August 2023}
+    {GeoComply Vietnam}{Ho Chi Minh City, Vietnam}
+    % \resumeItemListStart
+        \resumeItem{Built a Safari Web Extension in SwiftUI to bridge communication between the company's web and mobile SDKs and researched new iOS features and beta versions by following WWDC events.}
+        % \resumeItem{Proactively researched new iOS features and beta versions by following WWDC events.}
+    % \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Bachelor of Computer Science}{2020 -- 2024}
+    {Ho Chi Minh City University of Technology - VNUHCM}{HCMC, Vietnam}
+    \resumeItem{Graduated with distinction (GPA: 8.39). Recipient of Multiple Academic Incentive Scholarships.}
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+%-----------SOFT SKILLS \& LANGUAGES-----------
+\section{Soft Skills \& Languages}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item{
+    \textbf{Soft skills}{: Presentation, Time Management, Transparent Communication, Teamwork}\\
+    \textbf{Languages}{: \textbf{\textit{Vietnamese}} (Native), \textbf{\textit{English}} (Full professional proficiency - IELTS 8.0), \textbf{\textit{French}} (Limited working proficiency - DELF A2 / Currently preparing for B2)}
+  }
+\end{itemize}
+
+\end{document}
