@@ -26,17 +26,20 @@ jobs:
           root_file: main.tex
           working_directory: resume
           
-      - name: Create assets/docs directory
-        run: mkdir -p assets/docs
+      - name: Create directories
+        run: |
+          mkdir -p assets/docs
+          mkdir -p portfolio-hugo/static/docs
         
-      - name: Copy PDF to assets
+      - name: Copy PDF to both locations
         run: |
           cp resume/main.pdf assets/docs/PhucNguyen-Mobile-developer-resume.pdf
+          cp resume/main.pdf portfolio-hugo/static/docs/PhucNguyen-Mobile-developer-resume.pdf
           
       - name: Commit and push PDF
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add assets/docs/PhucNguyen-Mobile-developer-resume.pdf
+          git add assets/docs/PhucNguyen-Mobile-developer-resume.pdf portfolio-hugo/static/docs/PhucNguyen-Mobile-developer-resume.pdf
           git diff --staged --quiet || git commit -m "Auto-update resume PDF [skip ci]"
           git push
