@@ -1,3 +1,15 @@
 baseURL = 'https://nhophucrious.github.io'
 locale = 'en-us'
 title = "Toby Nguyen's portfolio"
+
+# No taxonomy templates exist; skip generating tags/ and categories/ output.
+disableKinds = ['taxonomy', 'term']
+
+[params]
+  description = "Phuc Nguyen's Portfolio – Flutter Mobile Developer"
+  author = "Toby Nguyen Nho Gia"
+  image = "/images/thumbnail-logo.png"
+  twitter = "@nhophucrious"
+  email = "nngiaphuc0101@gmail.com"
+  github = "https://github.com/nhophucrious"
+  linkedin = "https://www.linkedin.com/in/phucnguyenng/"

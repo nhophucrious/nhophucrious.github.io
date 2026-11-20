@@ -20,10 +20,10 @@
 
             <a href="{{ .RelPermalink }}" class="listing-card">
 
-                {{ with .Params.thumbnail }}
+                {{ if .Params.thumbnail }}
                 <img
-                    src="{{ . }}"
-                    alt="{{ $.Title }}"
+                    src="{{ .Params.thumbnail | relURL }}"
+                    alt="{{ .Title }}"
                     class="listing-thumbnail"
                 >
                 {{ end }}
@@ -39,6 +39,8 @@
                 </div>
 
             </a>
+        {{ else }}
+            <p>It's coming soon!</p>
 
         {{ end }}
 

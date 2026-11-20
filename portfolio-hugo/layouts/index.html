@@ -230,8 +230,8 @@
   <div class="featured-card-container" style="display: flex; justify-content: center; padding: 0 1rem;">
     {{ range first 1 (where .Site.RegularPages "Section" "blogs") }}
       <a href="{{ .RelPermalink }}" class="listing-card" style="max-width: 400px; width: 100%; text-align: left;">
-        {{ with .Params.thumbnail }}
-        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="listing-thumbnail">
+        {{ if .Params.thumbnail }}
+        <img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" class="listing-thumbnail">
         {{ end }}
         <div class="listing-content">
           <h2>{{ .Title }}</h2>
@@ -260,7 +260,7 @@
       </p>
       <div class="contact-links">
         <div class="contact-item">
-          <a href="mailto:nngiaphuc0101@gmail.com"
+          <a href="mailto:{{ site.Params.email }}"
             ><i class="fa fa-envelope"></i> nngiaphuc0101@gmail.com</a
           >
         </div>
@@ -268,7 +268,7 @@
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/phucnguyenng/"
+            href="{{ site.Params.linkedin }}"
             ><i class="fa fa-linkedin"></i> Phuc Nguyen Nho Gia</a
           >
         </div>

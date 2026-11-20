@@ -1,1 +1,5 @@
 .DS_Store
+.hugo_build.lock
+portfolio-hugo/public/
+portfolio-hugo/resources/_gen/
+portfolio-hugo/static/docs/*.pdf
