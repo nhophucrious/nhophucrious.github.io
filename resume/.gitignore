@@ -12,5 +12,5 @@
 *.run.xml
 *.xdv
 
-# Keep the generated PDF
-!main.pdf
+# PDF is built in CI (hugo.yaml), never committed
+*.pdf

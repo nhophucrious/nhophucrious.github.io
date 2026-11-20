@@ -2,50 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Phuc Nguyen's Portfolio – Flutter Mobile Developer"
-    />
-    <meta
-      name="keywords"
-      content="Phuc Nguyen, Toby Nguyen, Mobile Developer, Flutter Developer, BLoC, Clean Architecture, HCMUT, YQueue Singapore"
-    />
-    <meta name="author" content="Toby Nguyen Nho Gia" />
+    {{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+    {{ $desc := or .Description .Params.summary site.Params.description }}
+    {{ $image := (or .Params.thumbnail site.Params.image) | absURL }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $desc }}" />
+    <meta name="author" content="{{ site.Params.author }}" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#682412" />
+    <link rel="canonical" href="{{ .Permalink }}" />
 
     <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/images/favicon-16x16.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
 
-    <!-- begin open graph tags -->
-    <meta property="og:title" content="Toby Nguyen | Portfolio" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nhophucrious.github.io/" />
-    <meta property="og:image" content="/images/thumbnail-logo.png" />
-    <meta property="og:description" content="Toby Nguyen's Portfolio" />
-    <!-- end of open graph tags -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ $title }}" />
+    <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    <meta property="og:image" content="{{ $image }}" />
+    <meta property="og:description" content="{{ $desc }}" />
 
-    <!-- begin twitter card tags -->
+    <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@nhophucrious" />
-    <meta name="twitter:creator" content="@nhophucrious" />
-    <meta name="twitter:title" content="Toby Nguyen | Portfolio" />
-    <meta name="twitter:description" content="Toby Nguyen's Portfolio" />
-    <meta name="twitter:image" content="/images/thumbnail-logo.png" />
-    <!-- end of twitter card tags -->
+    <meta name="twitter:site" content="{{ site.Params.twitter }}" />
+    <meta name="twitter:creator" content="{{ site.Params.twitter }}" />
+    <meta name="twitter:title" content="{{ $title }}" />
+    <meta name="twitter:description" content="{{ $desc }}" />
+    <meta name="twitter:image" content="{{ $image }}" />
 
-    <title>Toby Nguyen | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="stylesheet" href="/css/navbar.css" />

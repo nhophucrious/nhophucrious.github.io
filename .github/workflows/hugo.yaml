@@ -14,10 +14,8 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    shell: bash
-    working-directory: portfolio-hugo
+env:
+  HUGO_VERSION: "0.147.2"
 
 jobs:
   build:
@@ -25,16 +23,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
+          hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
+
+      - name: Compile resume PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: resume
+
+      - name: Copy resume PDF into static assets
+        run: |
+          mkdir -p portfolio-hugo/static/docs
+          cp resume/main.pdf portfolio-hugo/static/docs/PhucNguyen-Mobile-developer-resume.pdf
+
       - name: Build with Hugo
-        run: hugo --minify
+        working-directory: portfolio-hugo
+        run: hugo --minify --gc --cleanDestinationDir
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
