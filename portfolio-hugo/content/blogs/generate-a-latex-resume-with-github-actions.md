@@ -1,6 +1,6 @@
 +++
 date = '2026-11-21T14:54:52+07:00'
-draft = true
+draft = false
 title = 'Generate A Latex Résumé with GitHub Actions'
 summary = 'Quick overview of how I solved the download-something problem for my portfolio.'
 +++
@@ -26,7 +26,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Restore compiled resume
+        id: resume-cache
+        uses: actions/cache@v4
+        with:
+          path: resume/main.pdf
+          key: resume-pdf-v1-${{ runner.os }}-${{ hashFiles('resume/main.tex') }}
+
       - name: Compile resume PDF
+        if: steps.resume-cache.outputs.cache-hit != 'true'
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
@@ -39,6 +48,8 @@ jobs:
 ```
 
 As you can see, it's quite simple: build out my `main.tex` file and then copy the result to somewhere the Download button references.
+
+I also want to skip the compilation and copy if there were no changes made to the source. I don't quite know if it's any impact, but I'd rather do something only when it's necessary :).
 
 ## Takeaways
 This is no world-altering genius, but I'm more than happy that I could apply something I learnt on the job for my own good.
