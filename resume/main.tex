@@ -107,29 +107,18 @@
 
 %-----------PROFESSIONAL SUMMARY-----------
 \section{Professional Summary}
-Mobile Developer with a track record of owning high-impact mobile products end to end - from inheriting a poorly architected live-streaming app and rebuilding it for 60fps performance, to leading a full BLoC and clean architecture migration on a production kiosk system serving F\&B businesses across Singapore. Focused on stable state management, offline-first data design, and shipping features that hold up under real-world edge cases.
+Mobile Developer who owns products end to end, from rebuilding a live-streaming commerce app to 60 FPS to building the offline-first kiosk and POS apps used by F\&B businesses across Singapore. Focused on predictable state management and features that hold up under real-world edge cases.
 \vspace{-10pt}
 
 %-----------TECHNICAL SKILLS-----------
 \section{Technical Skills}
 % \vspace{-10pt}
 \begin{itemize}[leftmargin=0.15in, label={}, noitemsep]
-    \item \textbf{Core:} Dart, Flutter, BLoC, Cubit, Clean Architecture, monorepo (Melos).
-    \item \textbf{Data \& Tooling:} Hive, Dio, Firebase, GetIt, Injectable, Sentry, Ably, Flutter Test.
-    \item \textbf{Workflow:} GitHub, GitHub Actions, GitHub Copilot, Open Router, Codex.
+    \item \textbf{Core:} Dart, Flutter, BLoC, Cubit, Provider, Clean Architecture, monorepo (Melos), dependency injection (get\_it, injectable).
+    \item \textbf{Offline \& Data:} Offline-first design, Ably, Hive, Drift, secure storage, Dio, data migrations.
+    \item \textbf{Hardware \& Integrations:} USB serial, ESC/POS printing, barcode scanners, platform channels, payment terminals, OAuth.
+    \item \textbf{Quality \& Workflow:} Unit testing (mocktail, bloc\_test), GitHub Actions CI, Sentry, GitHub, Firebase, GitHub Copilot, OpenRouter, Codex.
 \end{itemize}
-% \begin{multicols}{2}
-%   \begin{itemize}[leftmargin=0.15in, label={}, noitemsep]
-%       \item \textbf{Languages}{: Dart, Python}
-%       \item \textbf{Frameworks}{: Flutter}
-%       \item \textbf{State Management}{: BLoC, Cubit, Riverpod, Provider, GetX}
-%       \item \textbf{AI tools}{: GitHub Copilot, ChatGPT Codex, OpenRouter}
-%       \columnbreak
-%       \item \textbf{Architecture}{: Clean Architecture, Monorepo (Melos)}
-%       \item \textbf{Data \& Storage}{: Hive, SharedPreferences, Dio, json\_serializable}
-%       \item \textbf{Tools}{: GitHub, Bitbucket, Sentry, Firebase, GetIt, Injectable, flutter\_test}
-%   \end{itemize}
-% \end{multicols}
 \vspace{-20pt}
 
 %-----------EXPERIENCE-----------
@@ -140,10 +129,10 @@ Mobile Developer with a track record of owning high-impact mobile products end t
     {Mobile Developer}{August 2025 -- Present}
     {YQueue Singapore}{Singapore}
     \resumeItemListStart
-        \resumeItem{Co-architected and developed the POS application from the ground up as an foundational engineer on a 4-person team, establishing core subsystems (logging, localization, printing, and LAN sync) now live in production and onboarding active merchants.}
-        \resumeItem{Initiated and drove the structural refactor of the kiosk application, extracting unified domain, storage, and repository packages from the POS codebase to establish the clean-architecture blueprint followed by the team to migrate the application layer.}
-        \resumeItem{Engineered an offline-first transaction sync system across primary and secondary POS devices, implementing a revision-based conflict resolution strategy over local network to guarantee data consistency without internet dependency.}
-        \resumeItem{Maintained and scaled the shared \texttt{yqueue\_flutter} monorepo powering the kiosk, POS, OMS, and web apps, delivering critical ecosystem features including OAuth support, complex surcharge/discount logic, and real-time Ably events.}
+        \resumeItem{Co-architected and developed the POS application from the ground up as a foundational engineer on a 4-person team, establishing core subsystems (logging, localization, and an offline-first transaction sync across primary and secondary devices using revision-based conflict resolution over LAN) now live in production and onboarding active merchants.}
+        \resumeItem{Initiated and drove the structural refactor of the kiosk application, extracting unified domain, storage, and repository packages from the POS codebase to establish the clean-architecture blueprint the team followed to migrate the app from MVVM to BLoC.}
+        \resumeItem{Built the hardware layer for receipt and kitchen/label printing, cash drawer sessions and reports, and USB barcode scanners, including USB permission handling, hot-plug, and automatic printer relinking after reconnects.}
+        \resumeItem{Maintained and scaled the shared \texttt{yqueue\_flutter} and \texttt{yqueue\_dart} libraries powering the kiosk, POS, OMS, and web apps, delivering OAuth, surcharge/discount logic, real-time Ably events, AXS/NETS payment terminals, IglooX/ShopBack/Rewardly integrations, and catalog and floor-plan features.}
     \resumeItemListEnd
 
     \resumeSubheading
