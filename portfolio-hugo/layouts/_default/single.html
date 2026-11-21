@@ -37,6 +37,14 @@
     <img src="{{ . | relURL }}" alt="" class="article-cover">
     {{ end }}
 
+    {{ $toc := .TableOfContents }}
+    {{ if and (eq .Section "blogs") (findRE "<li>" $toc) }}
+    <details class="article-toc" open>
+        <summary>On this page</summary>
+        {{ $toc }}
+    </details>
+    {{ end }}
+
     <div class="prose">
         {{ .Content }}
     </div>
