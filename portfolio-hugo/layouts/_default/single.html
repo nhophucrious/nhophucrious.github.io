@@ -1,11 +1,10 @@
 {{ define "main" }}
+<div class="read-progress" aria-hidden="true"></div>
 
-{{ partial "navbar_subpage.html" . }}
+<article class="page-section container-article">
 
-<div class="project-hero">
-    <div class="project-hero-content">
-
-        <nav class="breadcrumb">
+    <header class="article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
             <a href="/">Home</a>
             {{ with .Parent }}
             <span class="breadcrumb-separator">/</span>
@@ -15,16 +14,14 @@
             <span class="breadcrumb-current">{{ .Title }}</span>
         </nav>
 
-        {{ with .Params.thumbnail }}
-        <img src="{{ . | relURL }}" alt="{{ $.Title }}" class="listing-thumbnail">
+        {{ with .Date }}
+        <p class="meta">{{ .Format "January 2, 2006" }}</p>
         {{ end }}
 
-        <h1>{{ .Title }}</h1>
+        <h1 class="page-title">{{ .Title }}</h1>
 
         {{ with .Params.summary }}
-        <p class="project-summary">
-            {{ . }}
-        </p>
+        <p class="lede">{{ . }}</p>
         {{ end }}
 
         {{ with .Params.technologies }}
@@ -34,20 +31,15 @@
             {{ end }}
         </div>
         {{ end }}
+    </header>
 
-        {{ with .Date }}
-        <p class="project-date">
-            {{ .Format "January 2, 2006" }}
-        </p>
-        {{ end }}
+    {{ with .Params.thumbnail }}
+    <img src="{{ . | relURL }}" alt="" class="article-cover">
+    {{ end }}
 
+    <div class="prose">
+        {{ .Content }}
     </div>
-</div>
 
-<article class="article-card">
-    {{ .Content }}
 </article>
-
-{{ partial "footer.html" . }}
-
 {{ end }}

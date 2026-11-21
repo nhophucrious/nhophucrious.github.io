@@ -1,0 +1,14 @@
+{{- /* Inline SVG icon. Usage: {{ partial "icon.html" "mail" }}. Looks in assets/icons/ui then assets/icons/brand. */ -}}
+{{- $name := . -}}
+{{- $res := resources.Get (printf "icons/ui/%s.svg" $name) -}}
+{{- $kind := "ui" -}}
+{{- if not $res -}}
+  {{- $res = resources.Get (printf "icons/brand/%s.svg" $name) -}}
+  {{- $kind = "brand" -}}
+{{- end -}}
+{{- with $res -}}
+  {{- $svg := .Content | replaceRE `(?s)<title>.*?</title>` "" | replaceRE ` role="img"` "" -}}
+  <span class="icon icon-{{ $kind }} icon-{{ $name }}" aria-hidden="true">{{ $svg | safeHTML }}</span>
+{{- else -}}
+  {{- errorf "icon %q not found in assets/icons" $name -}}
+{{- end -}}

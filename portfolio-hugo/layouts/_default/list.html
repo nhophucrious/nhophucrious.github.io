@@ -1,53 +1,30 @@
 {{ define "main" }}
+<section class="page-section container">
 
-{{ partial "navbar_subpage.html" . }}
-
-<section class="listing-page">
-
-    <nav class="breadcrumb">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a>
         <span class="breadcrumb-separator">/</span>
         <span class="breadcrumb-current">{{ .Title }}</span>
     </nav>
 
-    <h1>{{ .Title }}</h1>
+    <h1 class="page-title">{{ .Title }}</h1>
 
-    <div class="my-separator"></div>
-
-    <div class="listing-grid">
-
+    <div class="listing-grid" data-stagger>
         {{ range .Pages }}
-
-            <a href="{{ .RelPermalink }}" class="listing-card">
-
+            <a href="{{ .RelPermalink }}" class="listing-card reveal">
                 {{ if .Params.thumbnail }}
-                <img
-                    src="{{ .Params.thumbnail | relURL }}"
-                    alt="{{ .Title }}"
-                    class="listing-thumbnail"
-                >
+                <img src="{{ .Params.thumbnail | relURL }}" alt="" class="listing-thumbnail" loading="lazy">
                 {{ end }}
-
                 <div class="listing-content">
-
+                    {{ with .Date }}<p class="meta">{{ .Format "Jan 2006" }}</p>{{ end }}
                     <h2>{{ .Title }}</h2>
-
-                    <p>
-                        {{ .Params.summary }}
-                    </p>
-
+                    {{ with .Params.summary }}<p class="listing-summary">{{ . }}</p>{{ end }}
                 </div>
-
             </a>
         {{ else }}
-            <p>It's coming soon!</p>
-
+            <p class="empty-note">It's coming soon!</p>
         {{ end }}
-
     </div>
 
 </section>
-
-{{ partial "footer.html" . }}
-
 {{ end }}

@@ -1,179 +1,175 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var sideNav = document.getElementById("mySidenav");
-  var hamburger = document.querySelector(".hamburger");
-  var backToTopButton = document.getElementById("back-to-top");
-  var homeLinks = document.querySelectorAll(".home-back-to-top");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var isHome = document.body.classList.contains("is-home");
 
-  function getTopOffset() {
-    var navbar = document.querySelector(".navbar");
-    var hamburgerBar = document.querySelector(".hamburger");
+  var header = document.querySelector(".site-header");
+  var toggle = document.querySelector(".nav-toggle");
+  var menu = document.getElementById("nav-menu");
+  var backToTop = document.getElementById("back-to-top");
 
-    if (navbar && window.getComputedStyle(navbar).display !== "none") {
-      return navbar.offsetHeight;
-    }
-
-    if (hamburgerBar && window.getComputedStyle(hamburgerBar).display !== "none") {
-      return hamburgerBar.offsetHeight;
-    }
-
-    return 0;
+  // Mobile menu
+  function setMenu(open) {
+    if (!toggle || !menu) return;
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.classList.toggle("is-open", open);
   }
 
-  function scrollToY(position) {
-    window.scrollTo({
-      top: position,
-      behavior: "smooth",
-    });
-  }
-
-  function closeSidenav() {
-    if (sideNav) {
-      sideNav.style.width = "0";
-    }
-  }
-
-  function openSidenav() {
-    if (sideNav) {
-      sideNav.style.width = "250px";
-    }
-  }
-
-  document.querySelectorAll("a").forEach(function (anchor) {
-    anchor.addEventListener("click", function (event) {
-      var hash = anchor.hash;
-
-      if (!hash || hash === "#") {
-        return;
-      }
-
-      var target = document.querySelector(hash);
-      if (!target) {
-        return;
-      }
-
-      event.preventDefault();
-      closeSidenav();
-
-      var targetPosition = target.getBoundingClientRect().top + window.scrollY - getTopOffset();
-      scrollToY(targetPosition);
-
-      history.replaceState(null, "", hash);
-    });
-  });
-
-  if (hamburger) {
-    hamburger.addEventListener("click", function (event) {
+  if (toggle && menu) {
+    toggle.addEventListener("click", function (event) {
       event.stopPropagation();
-      openSidenav();
+      setMenu(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    menu.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setMenu(false);
+    });
+    document.addEventListener("click", function (event) {
+      if (!event.target.closest(".site-header")) setMenu(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") setMenu(false);
     });
   }
 
-  if (sideNav) {
-    sideNav.addEventListener("click", function (event) {
-      event.stopPropagation();
-    });
-
-    sideNav.querySelectorAll("a").forEach(function (navLink) {
-      navLink.addEventListener("click", closeSidenav);
+  if (backToTop) {
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
     });
   }
 
-  document.addEventListener("click", closeSidenav);
+  // Scroll-driven UI: header shadow, back-to-top, active section, read progress
+  var sections = isHome ? Array.from(document.querySelectorAll("#top, .section[id]")) : [];
+  var spyLinks = Array.from(document.querySelectorAll(".nav-links a[href^='#'], .nav-brand[href^='#']"));
+  var progressBar = document.querySelector(".read-progress");
+  var ticking = false;
 
-  homeLinks.forEach(function (link) {
-    link.addEventListener("click", function (event) {
-      if (isHomePage) {
-        event.preventDefault();
-        closeSidenav();
-        scrollToY(0);
-        history.replaceState(null, "", "#");
+  function update() {
+    ticking = false;
+    var y = window.scrollY;
+
+    if (header) header.classList.toggle("is-scrolled", y > 8);
+    if (backToTop) backToTop.classList.toggle("is-visible", y > 400);
+
+    if (progressBar) {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.setProperty("--progress", max > 0 ? Math.min(y / max, 1) : 0);
+    }
+
+    if (sections.length) {
+      var offset = (header ? header.offsetHeight : 0) + 80;
+      var currentId = "top";
+      var nearBottom = window.innerHeight + y >= document.documentElement.scrollHeight - 4;
+      if (nearBottom) {
+        currentId = sections[sections.length - 1].id;
+      } else {
+        sections.forEach(function (section) {
+          if (section.getBoundingClientRect().top <= offset) currentId = section.id;
+        });
       }
-    });
-  });
-
-  if (backToTopButton) {
-    backToTopButton.addEventListener("click", function () {
-      scrollToY(0);
-    });
-  }
-
-  function toggleBackToTopVisibility() {
-    if (!backToTopButton) {
-      return;
-    }
-
-    backToTopButton.style.display = window.scrollY > 20 ? "block" : "none";
-  }
-
-  window.addEventListener("scroll", toggleBackToTopVisibility);
-  toggleBackToTopVisibility();
-
-  if (window.Typed && document.getElementById("role-typed")) {
-    new Typed("#role-typed", {
-      strings: ["Flutter Engineer", "Mobile Developer", "BLoC Architect"],
-      typeSpeed: 60,
-      backSpeed: 35,
-      backDelay: 2200,
-      loop: true,
-      cursorChar: "|",
-    });
-  }
-
-  // Active nav highlight
-  var isHomePage =
-    window.location.pathname === "/" ||
-    window.location.pathname === "/index.html" ||
-    (window.location.host.includes("localhost") && window.location.pathname === "/");
-  
-  var allSections = Array.from(document.querySelectorAll(".section[id]")).filter(
-    function (s) {
-      return !s.classList.contains("is-hidden");
-    }
-  );
-  var allNavLinks = document.querySelectorAll(
-    ".navbar:not(.subpage-navbar) a[href^='#'], .sidenav:not(.subpage-navbar) a[href^='#']"
-  );
-
-  function updateActiveNav() {
-    if (!isHomePage) return;
-
-    var navbar = document.querySelector(".navbar");
-    var navbarHeight = navbar ? navbar.offsetHeight : 0;
-    var currentId = null;
-
-    // If scrolled near the bottom, force the last section active
-    var nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60;
-    if (nearBottom) {
-      currentId = allSections[allSections.length - 1].id;
-    } else {
-      allSections.forEach(function (section) {
-        var top = section.getBoundingClientRect().top;
-        if (top <= navbarHeight + 20) {
-          currentId = section.id;
-        }
+      spyLinks.forEach(function (link) {
+        if (!link.closest(".nav-links")) return;
+        var active = link.hash === "#" + currentId;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
       });
     }
+  }
 
-    // currentId null = at the top, highlight Home
-    var targetHref = currentId ? "#" + currentId : "#";
+  function onScroll() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }
 
-    allNavLinks.forEach(function (link) {
-      var href = link.getAttribute("href");
-      link.classList.toggle("active", href === targetHref);
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+
+  // Scroll reveal: add class once, then drop the reveal hooks so hover transitions stay snappy
+  var revealEls = document.querySelectorAll(".reveal");
+  document.querySelectorAll("[data-stagger]").forEach(function (group) {
+    Array.from(group.children).forEach(function (child, i) {
+      child.style.setProperty("--i", i);
+    });
+  });
+
+  function settle(el) {
+    el.addEventListener(
+      "transitionend",
+      function () {
+        el.classList.remove("reveal", "is-in");
+        el.style.removeProperty("--i");
+      },
+      { once: true }
+    );
+  }
+
+  if ("IntersectionObserver" in window && !reduceMotion) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            settle(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    revealEls.forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    revealEls.forEach(function (el) {
+      el.classList.remove("reveal");
     });
   }
 
-  window.addEventListener("scroll", updateActiveNav);
-  updateActiveNav();
+  // Typewriter for the hero role line
+  var roleEl = document.getElementById("role-typed");
+  if (roleEl && !reduceMotion) {
+    var roles = ["Flutter Engineer", "Mobile Developer", "BLoC Architect"];
+    var roleIndex = 0;
+    var charIndex = roles[0].length;
+    var deleting = false;
 
+    (function tick() {
+      var word = roles[roleIndex];
+      var delay;
+      if (!deleting) {
+        if (charIndex < word.length) {
+          charIndex++;
+          delay = 60;
+        } else {
+          deleting = true;
+          delay = 2200;
+        }
+      } else if (charIndex > 0) {
+        charIndex--;
+        delay = 35;
+      } else {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        delay = 300;
+      }
+      roleEl.textContent = roles[roleIndex].slice(0, charIndex);
+      setTimeout(tick, delay);
+    })();
+  }
+
+  // Contact form
   var contactForm = document.querySelector(".contact-form");
   if (contactForm) {
-    contactForm.addEventListener("submit", async function (e) {
-      e.preventDefault();
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
       var submitBtn = contactForm.querySelector(".btn-submit");
-      var originalHTML = submitBtn.innerHTML;
+      var label = submitBtn.querySelector(".btn-label");
+      var originalLabel = label.textContent;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+      submitBtn.classList.add("is-loading");
+      label.textContent = "Sending...";
 
       try {
         var response = await fetch(contactForm.action, {
@@ -181,20 +177,18 @@ document.addEventListener("DOMContentLoaded", function () {
           body: new FormData(contactForm),
           headers: { Accept: "application/json" },
         });
+        if (!response.ok) throw new Error("submit failed");
 
-        if (response.ok) {
-          contactForm.innerHTML =
-            '<div class="form-success"><i class="fa fa-check-circle"></i><p>Thanks for reaching out! I\'ll get back to you soon.</p></div>';
-        } else {
-          throw new Error("submit failed");
-        }
+        var tpl = document.getElementById("form-success-tpl");
+        contactForm.replaceChildren(tpl.content.cloneNode(true));
       } catch (_) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalHTML;
-        var existing = contactForm.querySelector(".form-error");
-        if (!existing) {
+        submitBtn.classList.remove("is-loading");
+        label.textContent = originalLabel;
+        if (!contactForm.querySelector(".form-error")) {
           var errMsg = document.createElement("p");
           errMsg.className = "form-error";
+          errMsg.setAttribute("role", "alert");
           errMsg.textContent = "Something went wrong. Please try again or email me directly.";
           contactForm.appendChild(errMsg);
         }
