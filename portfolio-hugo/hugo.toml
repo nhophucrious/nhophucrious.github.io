@@ -13,3 +13,9 @@ disableKinds = ['taxonomy', 'term']
   email = "nngiaphuc0101@gmail.com"
   github = "https://github.com/nhophucrious"
   linkedin = "https://www.linkedin.com/in/phucnguyenng/"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
