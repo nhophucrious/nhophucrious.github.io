@@ -191,7 +191,7 @@
 .brand-flutter { --brand: #02569b; }
 .brand-firebase { --brand: #e8590c; }
 .brand-github { --brand: #24292f; }
-.brand-bitbucket { --brand: #0052cc; }
+.brand-sentry { --brand: #362d59; }
 
 .skill-groups {
     display: grid;
