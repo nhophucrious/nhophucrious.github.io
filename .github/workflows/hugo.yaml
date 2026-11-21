@@ -41,7 +41,6 @@ jobs:
 
       - name: Compile resume PDF
         if: steps.resume-changes.outputs.changed == 'true'
-        run: echo "Running this step since /resume/main.tex changed"
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
@@ -49,7 +48,6 @@ jobs:
 
       - name: Copy resume PDF into static assets
         if: steps.resume-changes.outputs.changed == 'true'
-        run: echo "Running this step since /resume/main.tex changed"
         run: |
           mkdir -p portfolio-hugo/static/docs
           cp resume/main.pdf portfolio-hugo/static/docs/PhucNguyen-Mobile-developer-resume.pdf
