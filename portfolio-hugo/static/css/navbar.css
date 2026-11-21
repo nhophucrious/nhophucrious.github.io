@@ -1,96 +1,120 @@
-.navbar {
-    position: fixed;
+.site-header {
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    display: inline-flex;
-    justify-content: center;
-    overflow: hidden;
-    background-color: black;
     z-index: 1500;
+    height: var(--header-h);
+    background: rgba(251, 247, 244, 0.85);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--t-base) var(--ease), box-shadow var(--t-base) var(--ease);
 }
 
-.navbar a {
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 1rem 2rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.2s;
+.site-header.is-scrolled {
+    border-bottom-color: var(--line);
+    box-shadow: 0 6px 20px -16px rgba(43, 24, 16, 0.5);
 }
 
-.navbar a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.navbar a.active {
-    background-color: var(--primary-color);
-    color: var(--primary-white);
-}
-
-.hamburger {
-    position: fixed;
-    top: 0;
-    font-size: 3rem;
-    width: 100%;
-    padding: 1rem 2rem;
-    background-color: black;
-    color: var(--primary-white);
-    cursor: pointer;
-    display: none;
-    z-index: 100;
-}
-
-.sidenav {
+.nav {
+    width: min(1120px, 100% - 2.5rem);
     height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    opacity: 0.9;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 4rem;
-}
-
-.sidenav .social-media-icons-navbar a {
-    display: inline-flex;
-    gap: 1rem;
-    margin-left: 1rem;
-    justify-content: center;
-    font-size: 1.5rem;
+    margin-inline: auto;
+    display: flex;
     align-items: center;
-    padding: 1rem 0.5rem;
+    justify-content: space-between;
 }
 
-.sidenav a {
-    padding: 1rem 2rem;
+.nav-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink);
     text-decoration: none;
-    font-size: 1rem;
-    color: var(--primary-white);
-    font-weight: bold;
-    text-transform: uppercase;
+}
+
+.nav-brand-dot {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    position: relative;
     display: block;
-    transition: 0.3s;
+    padding: 0.5rem 0.9rem;
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--t-fast) var(--ease);
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
+/* underline wipe */
+.nav-links a::after {
+    content: "";
     position: absolute;
-    top: 0.75rem;
-    right: 2rem;
-    font-size: 2.2rem;
-    margin-left: 3rem;
-    line-height: 1;
-    text-transform: none;
+    left: 0.9rem;
+    right: 0.9rem;
+    bottom: 0.25rem;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--t-base) var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-toggle {
+    display: none;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--card);
     cursor: pointer;
+}
+
+.nav-toggle-bar {
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform var(--t-base) var(--ease), top var(--t-base) var(--ease);
+}
+
+.nav-toggle-bar:first-child {
+    top: calc(50% - 4px);
+}
+
+.nav-toggle-bar:last-child {
+    top: calc(50% + 2px);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:first-child {
+    top: calc(50% - 1px);
+    transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:last-child {
+    top: calc(50% - 1px);
+    transform: rotate(-45deg);
 }

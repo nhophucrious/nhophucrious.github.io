@@ -1,33 +1,19 @@
-<i class="fa fa-bars hamburger"></i>
-<div id="mySidenav" class="sidenav">
-  <a href="#" class="closebtn" aria-label="Close navigation menu">&times;</a>
-  <a href="#" class="home-back-to-top">Home</a>
-  <a href="#about">About</a>
-  <a href="#technical-skills">Skills</a>
-  <a href="#timeline">Journey</a>
-  <!-- <a href="#projects">Projects</a> -->
-  <a href="#contact">Contact</a>
-  <br />
-  <div class="social-media-icons-navbar">
-    <a href="mailto:{{ site.Params.email }}"><i class="fa fa-envelope"></i></a>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="{{ site.Params.github }}"
-      ><i class="fa fa-github"></i
-    ></a>
-    <a
-      target="_blank"
-      rel="noopener noreferrer"
-      href="{{ site.Params.linkedin }}"
-      ><i class="fa fa-linkedin"></i
-    ></a>
-  </div>
-</div>
-<div class="navbar">
-  <a href="#" class="home-back-to-top">Home</a>
-  <a href="#about">About</a>
-  <a href="#technical-skills">Skills</a>
-  <a href="#timeline">Journey</a>
-  <a href="#contact">Contact</a>
-</div>
+{{- /* Single site-wide header. Anchor links are prefixed with "/" on sub-pages so they jump back to the home page. */ -}}
+{{- $p := cond .IsHome "" "/" -}}
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-brand" href="{{ if .IsHome }}#top{{ else }}/{{ end }}">Toby<span class="nav-brand-dot">.</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="{{ $p }}#about">About</a></li>
+      <li><a href="{{ $p }}#technical-skills">Skills</a></li>
+      <li><a href="{{ $p }}#timeline">Journey</a></li>
+      <li><a href="/projects/"{{ if eq .Section "projects" }} class="active" aria-current="page"{{ end }}>Projects</a></li>
+      <li><a href="/blogs/"{{ if eq .Section "blogs" }} class="active" aria-current="page"{{ end }}>Blog</a></li>
+      <li><a href="{{ $p }}#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>

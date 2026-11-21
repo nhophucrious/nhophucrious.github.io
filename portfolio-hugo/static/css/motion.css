@@ -1,0 +1,106 @@
+/* Motion: short, CSS-first. Everything is disabled under prefers-reduced-motion. */
+
+/* Hero load-in (stagger via --d) */
+.hero-in {
+    animation: rise 600ms var(--ease) both;
+    animation-delay: calc(var(--d, 0) * 90ms);
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Scroll reveal (class toggled once by IntersectionObserver). Only active when JS is running. */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 450ms var(--ease), transform 450ms var(--ease);
+    transition-delay: calc(var(--i, 0) * 60ms);
+}
+
+.js .reveal.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Typewriter caret */
+.caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 3px;
+    background: var(--primary);
+    vertical-align: -0.15em;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Button spinner */
+.btn.is-loading .icon {
+    display: none;
+}
+
+.btn.is-loading::before {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Reading progress bar (single pages) */
+.read-progress {
+    position: fixed;
+    top: var(--header-h);
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 1400;
+    background: var(--primary);
+    transform: scaleX(var(--progress, 0));
+    transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+    }
+
+    .caret {
+        animation: none;
+    }
+}
