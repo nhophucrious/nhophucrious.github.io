@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Typewriter for the hero role line
   var roleEl = document.getElementById("role-typed");
   if (roleEl && !reduceMotion) {
-    var roles = ["Flutter Engineer", "Mobile Developer", "BLoC Architect"];
+    var roles = ["Mobile Developer", "Software Engineer", "Recreational Photographer", "Decent Guitarist", "Coffee Addict"];
     var roleIndex = 0;
     var charIndex = roles[0].length;
     var deleting = false;
