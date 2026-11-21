@@ -30,24 +30,21 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
-      - name: Check if main.tex changed
-        id: resume-changes
-        run: |
-          if git diff --name-only ${{ github.event.before}} ${{ github.sha }} | grep '^resume/main.tex'; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
+      - name: Restore compiled resume
+        id: resume-cache
+        uses: actions/cache@v4
+        with:
+          path: resume/main.pdf
+          key: resume-pdf-v1-${{ runner.os }}-${{ hashFiles('resume/main.tex') }}
 
       - name: Compile resume PDF
-        if: steps.resume-changes.outputs.changed == 'true'
+        if: steps.resume-cache.outputs.cache-hit != 'true'
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           working_directory: resume
 
       - name: Copy resume PDF into static assets
-        if: steps.resume-changes.outputs.changed == 'true'
         run: |
           mkdir -p portfolio-hugo/static/docs
           cp resume/main.pdf portfolio-hugo/static/docs/PhucNguyen-Mobile-developer-resume.pdf
