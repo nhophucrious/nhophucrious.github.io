@@ -30,7 +30,7 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
-      - name: Check if main.text changed
+      - name: Check if main.tex changed
         id: resume-changes
         run: |
           if git diff --name-only ${{ github.event.before}} ${{ github.sha }} | grep '^resume/main.tex'; then
